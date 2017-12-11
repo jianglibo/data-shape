@@ -26,6 +26,7 @@
       "timeEnd",
       "trace"
     ],
+    "strict-type-predicates": false,
     "no-construct": true,
     "no-debugger": true,
     "no-shadowed-variable": true,
@@ -33,6 +34,7 @@
     "no-inferrable-types": [
       true
     ],
+    "no-empty": false,
     "no-unnecessary-initializer": true,
     "no-magic-numbers": true,
     "no-require-imports": true,

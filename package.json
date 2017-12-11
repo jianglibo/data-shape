@@ -1,6 +1,6 @@
 {
-  "name": "@next-gen/typescript-lib-starter",
-  "version": "1.7.0",
+  "name": "data-shape",
+  "version": "1.0.0",
   "description": "TypeScript library setup for multiple compilation targets using tsc and webpack",
   "main": "umd/typescript-lib-starter.js",
   "module": "lib/index.js",
@@ -99,7 +99,11 @@
       }
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "rxjs": "^5.4.2",
+    "@angular/common": "^4.2.4",
+    "@angular/core": "^4.2.4"
+  },
   "devDependencies": {
     "@types/jest": "20.0.2",
     "@types/node": "7.0.31",
@@ -118,7 +122,8 @@
     "standard-version": "4.2.0",
     "strip-json-comments-cli": "1.0.1",
     "ts-jest": "20.0.6",
-    "tslint": "5.4.3",
+    "tslint": "~5.7.0",
+    "ts-node": "~3.2.0",
     "tslint-config-prettier": "1.1.0",
     "tslint-config-standard": "6.0.1",
     "tslint-react": "3.0.0",
