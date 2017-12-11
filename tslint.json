@@ -64,7 +64,7 @@
     "prefer-const": true,
     "prefer-method-signature": true,
     "ban-types": [
-      true,
+      false,
       [
         "Object",
         "Avoid using the `Object` type. Did you mean `object`?"
