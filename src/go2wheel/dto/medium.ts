@@ -7,7 +7,7 @@ import { MediumAttributes } from './medium-attributes'
 })
 export class Medium extends JsonapiObject<MediumAttributes> {
   attributes: MediumAttributes
-  relationships?: { [key in ('creator' | 'posts')]?: Relationship }
+  relationships?: { [key in 'creator' | 'posts']: Relationship }
 
   constructor(attributes: MediumAttributes) {
     super(Medium)

@@ -95,7 +95,7 @@ function getSortParams(sort: SortPhrase[] | SortPhrase): string {
   return sortstr
 }
 
-export class DatastoreUtilService {
+export class DatastoreUtil {
   constructor() {}
 
   static getListUrl<E extends AttributesBase, T extends JsonapiObject<E>>(

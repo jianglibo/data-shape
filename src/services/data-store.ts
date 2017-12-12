@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable'
 import { AttributesBase, JsonapiObject } from '../jsonapi-object'
 import { ListBody } from '../list-body'
 import { SingleBody } from '../single-body'
-import { PageCursor, PageNumberSize, PageOffsetLimit } from './datastore-util.service'
+import { PageCursor, PageNumberSize, PageOffsetLimit } from './datastore-util'
 
 export interface JsonapiObjectType<E extends AttributesBase, T extends JsonapiObject<E>> {
   new (attr: E): T

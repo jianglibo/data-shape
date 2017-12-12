@@ -7,7 +7,7 @@ import { GroupAttributes } from './group-attributes'
 })
 export class Role extends JsonapiObject<GroupAttributes> {
   attributes: GroupAttributes
-  relationships?: { [key in ('creator' | 'members' | 'receivedPosts')]?: Relationship }
+  relationships?: { [key in 'creator' | 'members' | 'receivedPosts']: Relationship }
 
   constructor(attributes: GroupAttributes) {
     super(Role)

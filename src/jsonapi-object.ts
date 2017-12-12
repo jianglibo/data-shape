@@ -18,7 +18,7 @@ export abstract class JsonapiObject<E extends AttributesBase> {
   type: string
   links: { self: string }
   abstract attributes: E
-  relationships?: { [s: string]: Relationship }
+  relationships?: { [s: string]: Relationship | undefined }
 
   constructor(jt: any) {
     this.type = Reflect.getMetadata(DtoDescriptionKey, jt).nameInUrl

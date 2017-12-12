@@ -6,6 +6,7 @@ describe('jsonapi object.', () => {
     jo.relationships = {
       unreads: { links: { self: 'a', related: 'b' } },
       followers: { links: { self: 'a', related: 'b' } },
+      abc: undefined,
     }
     expect(jo.relationships.unreads.links.self).toBe('a')
   })

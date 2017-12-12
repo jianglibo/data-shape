@@ -7,7 +7,7 @@ import { ManufacturerAttributes } from './manufacturer-attributes'
 })
 export class Manufacturer extends JsonapiObject<ManufacturerAttributes> {
   attributes: ManufacturerAttributes
-  relationships?: { [key in ('mtSerieses')]?: Relationship }
+  relationships?: { [key in 'mtSerieses']: Relationship }
   constructor(attributes: ManufacturerAttributes) {
     super(Manufacturer)
     this.attributes = attributes

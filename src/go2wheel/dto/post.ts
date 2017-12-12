@@ -1,5 +1,5 @@
 import { DtoDescription } from '../../dto-description'
-import { JsonapiObject } from '../../jsonapi-object'
+import { JsonapiObject, Relationship } from '../../jsonapi-object'
 import { PostAttributes } from './post-attributes'
 
 @DtoDescription({
@@ -7,7 +7,7 @@ import { PostAttributes } from './post-attributes'
 })
 export class Post extends JsonapiObject<PostAttributes> {
   attributes: PostAttributes
-  relationships?: { [key in ('sharedUsers' | 'creator' | 'sharedGroups' | 'media')]?: Relationship }
+  relationships?: { [key in 'sharedUsers' | 'creator' | 'sharedGroups' | 'media']: Relationship }
 
   constructor(attributes: PostAttributes) {
     super(Post)
