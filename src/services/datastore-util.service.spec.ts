@@ -3,53 +3,53 @@ import { DatastoreUtilService } from './datastore-util.service'
 
 describe('DatastoreUtilService', () => {
   it('should get right list url.', () => {
-    const url = DatastoreUtilService.getListUrl(LoginAttempt, undefined, null, null, '/jsonapi/')
+    const url = DatastoreUtilService.getListUrl(LoginAttempt, '/jsonapi/')
     expect(url).toBe('/jsonapi/loginAttempts')
   })
 
   it('should get right url with page.', () => {
-    let url = DatastoreUtilService.getListUrl(LoginAttempt, { offset: 0, limit: 20 }, null, null, '/jsonapi/')
+    let url = DatastoreUtilService.getListUrl(LoginAttempt, '/jsonapi/', { offset: 0, limit: 20 })
     expect(url).toBe('/jsonapi/loginAttempts?page[offset]=0&page[limit]=20')
 
-    url = DatastoreUtilService.getListUrl(LoginAttempt, { number: 0, size: 20 }, null, null, '/jsonapi/')
+    url = DatastoreUtilService.getListUrl(LoginAttempt, '/jsonapi/', { number: 0, size: 20 })
     expect(url).toBe('/jsonapi/loginAttempts?page[number]=0&page[size]=20')
 
-    url = DatastoreUtilService.getListUrl(LoginAttempt, { cursor: 555 }, null, null, '/jsonapi/')
+    url = DatastoreUtilService.getListUrl(LoginAttempt, '/jsonapi/', { cursor: 555 })
     expect(url).toBe('/jsonapi/loginAttempts?page[cursor]=555')
 
     url = DatastoreUtilService.getListUrl(
       LoginAttempt,
-      null,
+      '/jsonapi/',
+      undefined,
       [{ fname: 'username', direction: 'desc' }, { fname: 'password', direction: 'asc' }],
-      [{ fname: 'username', value: 'a' }],
-      '/jsonapi/'
+      [{ fname: 'username', value: 'a' }]
     )
     expect(url).toBe('/jsonapi/loginAttempts?sort=-username,password&filter[username]=a')
 
     url = DatastoreUtilService.getListUrl(
       LoginAttempt,
-      null,
+      '/jsonapi/',
+      undefined,
       [{ fname: 'username', direction: 'desc' }, { fname: 'password', direction: 'asc' }],
-      { fname: 'username', value: 'a' },
-      '/jsonapi/'
+      { fname: 'username', value: 'a' }
     )
     expect(url).toBe('/jsonapi/loginAttempts?sort=-username,password&filter[username]=a')
 
     url = DatastoreUtilService.getListUrl(
       LoginAttempt,
-      null,
+      '/jsonapi/',
+      undefined,
       { fname: 'username', direction: 'desc' },
-      [{ fname: 'username', value: 'a' }],
-      '/jsonapi/'
+      [{ fname: 'username', value: 'a' }]
     )
     expect(url).toBe('/jsonapi/loginAttempts?sort=-username&filter[username]=a')
 
     url = DatastoreUtilService.getListUrl(
       LoginAttempt,
-      null,
+      '/jsonapi/',
+      undefined,
       { fname: 'username', direction: 'desc' },
-      { fname: 'username', value: 'a' },
-      '/jsonapi/'
+      { fname: 'username', value: 'a' }
     )
     expect(url).toBe('/jsonapi/loginAttempts?sort=-username&filter[username]=a')
   })
@@ -83,16 +83,6 @@ describe('DatastoreUtilService', () => {
     // // tslint:disable-next-line:no-string-literal
     // expect({ abc: null }['abc'] === null).toBe(true)
   })
-  it('keyof', () => {
-    // tslint:disable-next-line:interface-over-type-literal
-    type t = { a: number; b: string }
-    // tslint:disable-next-line:prefer-const
-    let ko: keyof LoginAttempt
-    // tslint:disable-next-line:prefer-const
-    let tt: t
-    console.log(tt)
-    console.log(ko)
-  })
   it('number switch', () => {
     let key: number
     let v: string
@@ -105,6 +95,7 @@ describe('DatastoreUtilService', () => {
         v = '1'
         break
       default:
+        v = '2'
         break
     }
     expect(v).toBe('1')

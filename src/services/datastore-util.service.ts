@@ -41,17 +41,15 @@ export function isModelInstance<E extends AttributesBase, T extends JsonapiObjec
 function getPagerParams(page: PageCursor | PageNumberSize | PageOffsetLimit): string {
   // let tpage: Pager;
   let pagestr = ''
-  if (page) {
-    if (isPageNumberSize(page)) {
-      pagestr = `page[number]=${page.number}&page[size]=${page.size}`
-    } else if (isPageOffsetLimit(page)) {
-      pagestr = `page[offset]=${page.offset}&page[limit]=${page.limit}`
-    } else if (isPageCursor(page)) {
-      pagestr = `page[cursor]=${page.cursor}`
-    } else {
-      throw new Error('Unexpected page format.')
-      // silent.
-    }
+  if (isPageNumberSize(page)) {
+    pagestr = `page[number]=${page.number}&page[size]=${page.size}`
+  } else if (isPageOffsetLimit(page)) {
+    pagestr = `page[offset]=${page.offset}&page[limit]=${page.limit}`
+  } else if (isPageCursor(page)) {
+    pagestr = `page[cursor]=${page.cursor}`
+  } else {
+    throw new Error('Unexpected page format.')
+    // silent.
   }
 
   return pagestr
@@ -102,10 +100,10 @@ export class DatastoreUtilService {
 
   static getListUrl<E extends AttributesBase, T extends JsonapiObject<E>>(
     jsonapiObjectTypeOrString: JsonapiObjectType<E, T> | string,
-    page: PageNumberSize | PageCursor | PageOffsetLimit,
-    sort: SortPhrase[] | SortPhrase,
-    filter: FilterPhrase[] | FilterPhrase,
-    baseUrl = '/'
+    baseUrl = '/',
+    page?: PageNumberSize | PageCursor | PageOffsetLimit,
+    sort?: SortPhrase[] | SortPhrase,
+    filter?: FilterPhrase[] | FilterPhrase
   ): string {
     let nameInUrl: string
     if (typeof jsonapiObjectTypeOrString === 'string') {
@@ -118,15 +116,18 @@ export class DatastoreUtilService {
     }
     let result = baseUrl + nameInUrl
 
-    let tobeappend = getPagerParams(page)
-    const filterstr = getFilterParams(filter)
-    let sortstr = getSortParams(sort)
+    let tobeappend = ''
+    if (page) {
+      tobeappend = getPagerParams(page)
+    }
 
-    if (sortstr) {
+    if (sort) {
+      let sortstr = getSortParams(sort)
       sortstr = 'sort=' + sortstr
       tobeappend = tobeappend ? tobeappend + '&' + sortstr : sortstr
     }
-    if (filterstr) {
+    if (filter) {
+      const filterstr = getFilterParams(filter)
       tobeappend = tobeappend ? tobeappend + '&' + filterstr : filterstr
     }
     result = tobeappend ? result + '?' + tobeappend : result
@@ -146,9 +147,9 @@ export class DatastoreUtilService {
     baseUrl = '/'
   ): string {
     if (isModelInstance(jsonapiObjectType)) {
-      return this.getListUrl(jsonapiObjectType.type, undefined, [], [], id as string) + '/' + jsonapiObjectType.id
+      return this.getListUrl(jsonapiObjectType.type, id as string) + '/' + jsonapiObjectType.id
     } else {
-      return this.getListUrl(jsonapiObjectType, undefined, [], [], baseUrl) + '/' + id
+      return this.getListUrl(jsonapiObjectType, baseUrl) + '/' + id
     }
   }
 }
