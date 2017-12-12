@@ -1,11 +1,11 @@
 {
   "name": "data-shape",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "TypeScript library setup for jsonapi data format.",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "es2015": "lib-esm/index.js",
-  "typings": "typings/index.d.ts",
+  "main": "./umd/data-shape.js",
+  "module": "./lib/index.js",
+  "es2015": "./lib-esm/index.js",
+  "typings": "./typings/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://www.github.com/jianglibo/data-shape"
