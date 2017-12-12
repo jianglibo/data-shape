@@ -1,14 +1,14 @@
 {
   "name": "data-shape",
   "version": "1.0.0",
-  "description": "TypeScript library setup for multiple compilation targets using tsc and webpack",
+  "description": "TypeScript library setup for jsonapi data format.",
   "main": "umd/typescript-lib-starter.js",
   "module": "lib/index.js",
   "es2015": "lib-esm/index.js",
   "typings": "typings/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/Hotell/typescript-lib-starter"
+    "url": "https://www.github.com/jianglibo/data-shape"
   },
   "author": "Martin Hochel",
   "license": "MIT",
