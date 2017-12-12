@@ -1,6 +1,6 @@
 {
   "name": "data-shape",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "TypeScript library setup for jsonapi data format.",
   "main": "./umd/data-shape.js",
   "module": "./lib/index.js",
@@ -120,8 +120,8 @@
     "standard-version": "4.2.0",
     "strip-json-comments-cli": "1.0.1",
     "ts-jest": "20.0.6",
-    "tslint": "~5.7.0",
     "ts-node": "~3.2.0",
+    "tslint": "~5.7.0",
     "tslint-config-prettier": "1.1.0",
     "tslint-config-standard": "6.0.1",
     "tslint-react": "3.0.0",
