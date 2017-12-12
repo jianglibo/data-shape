@@ -1,8 +1,8 @@
 {
   "name": "data-shape",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TypeScript library setup for jsonapi data format.",
-  "main": "umd/typescript-lib-starter.js",
+  "main": "umd/data-shape.js",
   "module": "lib/index.js",
   "es2015": "lib-esm/index.js",
   "typings": "typings/index.d.ts",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://www.github.com/jianglibo/data-shape"
   },
-  "author": "Martin Hochel",
+  "author": "jianglibo@gmail.com",
   "license": "MIT",
   "engines": {
     "node": ">=6.9"
