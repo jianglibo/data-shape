@@ -5,12 +5,12 @@ import { GroupAttributes } from './group-attributes'
 @DtoDescription({
   nameInUrl: 'groups',
 })
-export class Role extends JsonapiObject<GroupAttributes> {
+export class Group extends JsonapiObject<GroupAttributes> {
   attributes: GroupAttributes
   relationships?: { [key in 'creator' | 'members' | 'receivedPosts']: Relationship }
 
   constructor(attributes: GroupAttributes) {
-    super(Role)
+    super(Group)
     this.attributes = attributes
   }
 }
