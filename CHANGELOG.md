@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.2"></a>
+## 1.0.2 (2017-12-12)
+
+
+### Bug Fixes
+
+* package.json content ([054dcbd](https://www.github.com/jianglibo/data-shape/commit/054dcbd))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://www.github.com/Hotell/typescript-lib-starter/compare/v1.6.0...v1.7.0) (2017-06-17)
 
