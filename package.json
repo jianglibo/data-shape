@@ -1,8 +1,8 @@
 {
   "name": "data-shape",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "TypeScript library setup for jsonapi data format.",
-  "main": "umd/data-shape.js",
+  "main": "lib/index.js",
   "module": "lib/index.js",
   "es2015": "lib-esm/index.js",
   "typings": "typings/index.d.ts",
