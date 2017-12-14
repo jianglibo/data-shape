@@ -8,8 +8,12 @@ import { UserAttributes } from './user-attributes'
 export class User extends JsonapiObject<UserAttributes> {
   attributes: UserAttributes
   relationships?: { [key in 'unreads' | 'followers' | 'abc']: Relationship | undefined }
-  constructor(attributes: UserAttributes) {
+  constructor(attributes?: UserAttributes) {
     super(User)
-    this.attributes = attributes
+    if (attributes) {
+      this.attributes = attributes
+    } else {
+      this.attributes = new UserAttributes()
+    }
   }
 }

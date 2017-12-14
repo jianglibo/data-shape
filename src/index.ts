@@ -1,3 +1,5 @@
+export { LoginAttempt } from './go2wheel/dto/login-attempt'
+export { LoginAttemptAttributes } from './go2wheel/dto/login-attempt-attributes'
 export { LOGIN_FAIL_BODY } from './fixtures/loginfailure'
 export { LOGIN_SUCCESS_BODY } from './fixtures/loginsuccess'
 

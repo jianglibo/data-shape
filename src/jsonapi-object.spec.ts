@@ -10,6 +10,17 @@ describe('jsonapi object.', () => {
     }
     expect(jo.relationships.unreads.links.self).toBe('a')
   })
-  // tslint:disable-next-line:no-empty
-  it('attributes.', () => {})
+
+  it('from json to class instance.', () => {
+    const nu = new User()
+    const nus = JSON.stringify(nu)
+    expect(nus).toContain('attributes')
+    nu.attributes.email = 'jianglibo@gmail.com'
+    const rjo = JSON.parse(JSON.stringify(nu))
+    type t = User
+    const u: User = rjo as t
+    expect(u.attributes.email).toBe('jianglibo@gmail.com')
+  })
+
+  // start from urlnames, we get resource type and fixture location, send to client.
 })
